@@ -36,7 +36,7 @@ class SizeVariant(models.Model):
         return self.size_name
 
 class Product(models.Model):
-    product_name = models.CharField(verbose_name="Product Name",max_length=50) # this is a verbose name, 
+    product_name = models.CharField(verbose_name="Product Name", max_length=50) # this is a verbose name, 
     # if the verbose name isn’t given, Django will automatically create it using the field’s attribute name, 
     # converting underscores to spaces.
     category = models.ForeignKey(Category,on_delete=models.CASCADE) # one to many field
@@ -57,4 +57,4 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
-    image = models.ImageField(upload_to='static/products')
+    image = models.ImageField(upload_to='media/products')

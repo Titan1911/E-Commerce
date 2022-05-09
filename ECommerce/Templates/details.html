@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.product_name }}</title>
+</head>
+<body>
+    <img src="{{ product.image.url }}">
+    {% for photo in photos %}
+        <img src="{{ photo.images.url }}">
+    {% endfor %}
+    <p>{{ product.product_name }}</a></p>
+    <p>category: {{ product.category }}</p>
+    <p>description: {{ product.description }}</p>
+    <p>price: {{ product.price }}</p>
+    <p>stock left: {{ product.stock }}</p>
+
+    {% if product.color_type %}
+        <p>color: {{ product.color_type }}</p>
+    {% endif %}
+
+    {% if product.size_type %}
+        <p>size: {{ product.size_type }}</p>
+    {% endif %}
+    
+    {% if product.quantity_type %}
+        <p>quantity: {{ product.quantity_type }}</p>
+    {% endif %}
+    <br>
+</body>
+</html>

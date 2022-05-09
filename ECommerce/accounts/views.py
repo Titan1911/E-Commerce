@@ -10,7 +10,7 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('products')
         else:
             messages.error(request,('there was an error'))
             return redirect('login')
@@ -19,13 +19,8 @@ def login_user(request):
 
 def register_user(request):
     if request.method=='POST':
-        # print(request.POST)
         form = RegiserUserForm(request.POST)
-        # print(form)
-        # print('form is saves')
-        # username = form.cleaned_data['username']
         if form.is_valid():
-            # print('form is saves')
             form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
@@ -33,14 +28,12 @@ def register_user(request):
             user = authenticate(username=username, password=password, email=email)
             login(request, user)
             messages.success(request, ("Registration Successful!"))
-            return redirect('home')
+            return redirect('products')
         else:
             # print('invalid')
             context={'errors':form.errors, 'form':form}
-            # form = RegiserUserForm()
 
     else:
-        # print('control is in else')
         form = RegiserUserForm()
         context = {'form':form}
 

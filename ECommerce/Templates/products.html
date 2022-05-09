@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+</head>
+<body>
+    {% for product in products %}
+        <img src="{{ product.image.url }}">
+        <p><a href="{% url 'details' product.id %}">{{ product.product_name }}</a></p>
+        <!-- <p>category: {{ product.category }}</p> -->
+        <!-- <p>description: {{ product.description }}</p> -->
+        <p>price: {{ product.price }}</p>
+        
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <input hidden type="text" name='product' value='{{ product.id }}'>
+            <button type="submit">Add To Cart</button>
+        </form>
+        <!-- <button type="submit">Add to Cart</button> -->
+        <!-- <p>stock left: {{ product.stock }}</p> -->
+        <br>
+    {% endfor %}
+    <p><a href="/cart">Cart</a></p>
+</body>
+</html>

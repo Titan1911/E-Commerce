@@ -1,4 +1,3 @@
-from distutils.command.upload import upload
 from django.db import models
 from django.utils.text import slugify
 
@@ -8,7 +7,8 @@ class Category(models.Model):
     slug = models.SlugField(max_length=50,blank=True) # particular category which we get from url parameter
 
     def save(self,*args,**kwargs):
-        self.slug = slugify(self.category_name)
+        if not self.slug:
+            self.slug = slugify(self.category_name)
         super(Category,self).save(*args,**kwargs)
 
     def __str__(self) -> str:
@@ -48,6 +48,7 @@ class Product(models.Model):
     quantity_type = models.ForeignKey(QuantityVariant, blank=True, null=True, on_delete=models.PROTECT)
     color_type = models.ForeignKey(ColorVariant, blank=True, null=True, on_delete=models.PROTECT)
     size_type = models.ForeignKey(SizeVariant, blank=True, null=True, on_delete=models.PROTECT)
+    image = models.ImageField(null=True, blank=True)
 
     def __str__(self) -> str:
         return self.product_name
@@ -57,4 +58,7 @@ class Product(models.Model):
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT)
-    image = models.ImageField(upload_to='media/products')
+    images = models.ImageField(upload_to='products/')
+
+    def __str__(self) -> str:
+        return str(self.product.product_name)

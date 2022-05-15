@@ -10,7 +10,7 @@ def show_all(request):
         print('the function is called')
         product_id = request.POST.get('product')
         user = request.user
-        # print(user)
+        # print(user.first_name)
         product = Product.objects.get(id=product_id)
         cart = Cart.objects.get_or_create(user=user)
         # print(cart[0].id)

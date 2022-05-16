@@ -11,12 +11,42 @@
 </head> -->
 <!-- <p> -->
     <br>
-    {% for item in cart_items %}
+    <!-- {% for item in cart_items %}
         <p>{{ item.product.product_name }}</p>
         <p>{{ item.product.price }}</p>
-    {% endfor %}
-    <p>Total Price: {{ cart.total_price }}</p>
-    <p>Total Items: {{ cart.total_items }}</p>
+    {% endfor %} -->
 <!-- </body> -->
+<table class="table table-hover table-sm caption-top">
+    <!-- <caption>List of items</caption> -->
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Item</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for item in cart_items %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th> 
+        <td><img style="height: 60px;" class="rounded-circle" src="{{ item.product.image.url }}" alt=""></td>
+        <td>{{ item.product.product_name }}</td>
+        <td>{{ item.product.price }}</td>
+        <td>{{ item.quantity }}</td>
+        <!-- <td>@mdo</td> -->
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">{{ cart.total_price }}</th>
+        <th scope="col">{{ cart.total_items }}</th>
+    </tfoot>
+  </table>
+  <br>
 </html>
 {% endblock %}

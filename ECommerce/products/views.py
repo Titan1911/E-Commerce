@@ -22,7 +22,6 @@ def show_all(request):
         # when create is called, signal is called so no need to save this
         products = Product.objects.all()
         context = {'products':products}
-        # print(CartItem.objects.filter(product=product))
         return render(request, 'products.html', context=context)
     
     elif request.method=='GET':   

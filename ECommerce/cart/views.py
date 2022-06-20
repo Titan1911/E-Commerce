@@ -7,6 +7,7 @@ def show_cart(request):
     user = request.user
     cart_items = CartItem.objects.filter(cart__user=user)
     cart = Cart.objects.get_or_create(user=user)
+    print(cart[0].total_items)
     context = {'cart_items': cart_items, 'cart': cart[0]}
     return render(request, 'cart.html', context=context)
 

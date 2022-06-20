@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+{% load cart %}
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +28,29 @@
                 <input hidden type="text" name='product' value='{{ product.id }}'>
                 <button type="submit" class="btn btn-primary">Add To Cart</button>
             </form> -->
-              <form action="/" method="POST">
-                {% csrf_token %}
-                <input hidden type="text" name='product' value='{{ product.id }}'>
-                <button type="submit" class="btn btn-primary">Add To Cart</button>
+            {% is_in_cart as quantity %} <!-- loads the templatetag as another name-->
+            {% if quantity %}
+            <div class="row no-gutters">
+							<form action="/" class="col-3" method="post">
+								{% csrf_token %}
+								<input hidden type="text" name='product' value='{{product.id}}'>
+								<input hidden type="text" name='remove' value='True'>
+								<input type="submit" value="-" class="btn btn-primary border-right">
+							</form>
+							<div class="text-center btn btn-primary col">{{ quantity }} in Cart</div>
+							<form action="/" class=" col-3" method="post">
+								{% csrf_token %}
+								<input hidden type="text" name='product' value='{{ product.id }}'>
+								<input type="submit" value="+" class="btn btn-primary border-left">
+							</form>
+            </div>
+            {% else %}
+            <form action="/" method="POST">
+              {% csrf_token %}
+              <input hidden type="text" name='product' value='{{ product.id }}'>
+              <button type="submit" class="btn btn-primary">Add To Cart</button>
             </form>
+            {% endif %}
             </div>
           </div>
         </div>

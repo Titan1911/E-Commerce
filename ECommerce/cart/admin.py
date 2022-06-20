@@ -13,7 +13,7 @@ class CartItemAdmin(admin.ModelAdmin):
 
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
-    readonly_fields = ('total_price', 'total_items')
+    # readonly_fields = ('total_price', 'total_items')
 
     class Meta:
         model = Cart

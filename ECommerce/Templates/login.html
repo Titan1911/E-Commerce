@@ -1,12 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-</head>
+{% extends 'base.html' %}
+
+{% block content %}
 <body>
+    <br>
     {% if messages %}
         {% for message in messages %}
             {{ message }}
@@ -18,9 +14,12 @@
         <input type="text" name="username"><br><br>
         <label for="password">Password:</label><br>
         <input type="password" name="password"><br><br>
-        <button type="submit" value="login">Login</button>
+        <button class="btn btn-secondary" type="submit" value="login">Login</button>
     </form>
+    <br>
     <h3>new user?</h3>
     <a href="/auth/register_user/">Register</a>
 </body>
 </html>
+
+{% endblock %}

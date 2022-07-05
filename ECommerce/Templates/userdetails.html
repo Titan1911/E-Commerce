@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body>
+    <br>
+    {% if user_details %}
+    {% for user_detail in user_details %}
+    <div class="form-check">
+        <form action="{% url 'order' %}" method="post">
+            {% csrf_token %}
+            <input class="form-check-input" type="radio" name="phone" value='{{user_detail.phone}}'>
+            <label class="form-check-label" for="phone"></label>
+            <input hidden tyep="text" name="address" value='{{user_detail.address}}'>
+            <input hidden type="text" name="existed_value" value='True'>
+            <p>{{user_detail.phone}}</p>
+            <p>{{user_detail.address}}</p>
+            </label>
+            <button class="btn btn-secondary" type="submit">Place Order</button>
+        </form>
+            </div>
+        </div>
+      <br>
+      {% endfor %}
+    {% endif %}
+    <br>
+    <h3>OR</h3>
+    <br>
+    <form action="{% url 'order' %}" method="post">
+        {% csrf_token %}
+        <label for="phone">Phone:</label><br>
+        <input type="text" name="phone"><br><br>
+        <label for="address">Address:</label><br>
+        <input type="text" name="address"><br><br>
+        <input hidden type="text" name="existed_value" value='False'>
+        <button class="btn btn-secondary" type="submit">Place Order</button>
+    </form>
+</body>
+
+{% endblock %}

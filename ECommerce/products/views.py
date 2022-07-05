@@ -15,7 +15,6 @@ def show_all(request):
         cart = Cart.objects.get_or_create(user=user)
         item = CartItem.objects.get_or_create(product=product, cart=cart[0])
         cart_item = item[0]
-        created = item[1]
         cart = cart[0]
         print(cart.total_price)
         # print(remove)

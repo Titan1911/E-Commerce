@@ -1,3 +1,4 @@
+from email import message
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
@@ -12,7 +13,6 @@ def login_user(request):
             login(request, user)
             return redirect('products')
         else:
-            messages.error(request,('there was an error'))
             return redirect('login')
     else:
         return render(request, 'login.html')
@@ -27,13 +27,14 @@ def register_user(request):
             email = form.cleaned_data['email']
             user = authenticate(username=username, password=password, email=email)
             login(request, user)
-            messages.success(request, ("Registration Successful!"))
+            messages.success(request, "Registeration Successful!")
             return redirect('products')
         else:
             # print('invalid')
             context={'errors':form.errors, 'form':form}
 
     else:
+
         form = RegiserUserForm()
         context = {'form':form}
 

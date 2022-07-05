@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if form.errors %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    There was an error with your form...
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,18 +16,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
 </head>
-<body>
+<body> -->
+    <br>
     <form action="{% url 'register' %}" method="post">
         {% csrf_token %}
-        {% if errors %}
-            {{ errors }}
-        {% endif %}
         {{ form.as_p }}
         <br>
-        <button type="submit" value="Register">Register</button>
+        <button class="btn btn-secondary" type="submit" value="Register">Register</button>
     </form>
     <br>
     <h3>existing user?</h3>
     <a href="/auth/login_user">Login</a>
 </body>
 </html>
+
+{% endblock %}

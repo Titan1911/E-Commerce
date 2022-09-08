@@ -1,0 +1,11 @@
+username: sahilahuja
+password: thatswhatshesaid
+
+username: ecommerce (superuser)
+password: ecommerce
+
+username: randomuser
+password: thiscanthappen
+
+username: someuser
+password: somepassword123

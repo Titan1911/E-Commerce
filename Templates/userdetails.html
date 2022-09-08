@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user_details %}
+    {% for user_detail in user_details %}
+    <div class="m-3 form-check">
+        <form action="{% url 'order' %}" method="post">
+            {% csrf_token %}
+            <input class="form-check-input" type="radio" name="flexRadioDefault" id="{{user_detail.id}}"value='{{user_detail.phone}}'>
+            <label class="form-check-label" for="{{user_detail.id}}"></label>
+            <input hidden tyep="text" name="address" value='{{user_detail.address}}'>
+            <input hidden type="text" name="existed_value" value='True'>
+            <p>{{user_detail.phone}}</p>
+            <p>{{user_detail.address}}</p>
+            </label>
+            <button class="btn btn-secondary" type="submit">Place Order</button>
+        </form>
+    </div>
+    {% endfor %}
+    <h3 class="m-3">OR</h3>
+    {% endif %}
+
+    
+    <form class="m-3" action="{% url 'order' %}" method="post">
+        {% csrf_token %}
+        <label for="phone">Phone:</label><br>
+        <input type="text" name="phone"><br><br>
+        <label for="address">Address:</label><br>
+        <input type="text" name="address"><br><br>
+        <input hidden type="text" name="existed_value" value='False'>
+        <button class="btn btn-secondary" type="submit">Place Order</button>
+    </form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table table-hover table-sm caption-top">
+    <!-- <caption>List of items</caption> -->
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Order Price</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for items in ordered_items %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td><img style="height: 60px;" class="rounded-circle" src="{{ items.product.image.url }}"></td>
+        <td>{{ items.product }}</td>
+        <td>{{ items.product.price }}</td>
+        <td>{{ items.quantity }}</td>
+        <td>{{ items.price }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col">{{ order.total_items }}</th>
+        <th scope="col">Rs. {{ order.total_price }}</th>
+    </tfoot>
+  </table>
+    
+{% endblock %}

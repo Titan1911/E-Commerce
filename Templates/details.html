@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="card mb-3 m-3" style="max-width: 1000px;">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          {% for photo in photos %}
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{ forloop.counter }}" aria-label="Slide {{ forloop.counter }}"></button>
+          {% endfor %}
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{ product.image.url }}" class="d-block w-100" >
+          </div>
+          {% for photo in photos %}
+          <div class="carousel-item">
+            <img src="{{ photo.images.url }}" class="d-block w-100" style="height: 400px;">
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h4 class="card-title">{{ product.product_name }}</h4>
+        <p class="card-text">Category: {{ product.category }}</p>
+        <p class="card-text">Description: {{ product.description }}</p>
+        <p class="card-text">Price: {{ product.price }}</p>
+        <p class="card-text">Stock left: {{ product.stock }}</p>
+        {% if product.color_type %}
+          <p class="card-text">Color: {{ product.color_type }}</p>
+        {% endif %}
+
+        {% if product.size_type %}
+          <p class="card-text">Size: {{ product.size_type }}</p>
+        {% endif %}
+        
+        {% if product.quantity_type %}
+          <p class="card-text">Quantity: {{ product.quantity_type }}</p>
+        {% endif %}
+    
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

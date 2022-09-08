@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="alert alert-warning text-center fw-bold" role="alert">
+        You are already logged in! Logout to login again...
+    </div>
+{% else %}
+    {% if messages %}
+        {% for m in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{ m }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <form class="p-3" action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <label for="username">Username:</label><br>
+        <input type="text" name="username"><br><br>
+        <label for="password">Password:</label><br>
+        <input type="password" name="password"><br><br>
+        <button class="btn btn-secondary" type="submit" value="login">Login</button>
+    </form>
+    <h3 class="p-3">New User?</h3>
+    <a class="p-3" href="/auth/register_user/">Register</a>
+{% endif %}
+
+{% endblock %}

@@ -88,6 +88,11 @@ DATABASES = {
     }
 }
 
+# settings to set-up postgresSQL as database on HEROKU deployment
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 CACHE_TTL = 60 * 1500
 
 CACHES = {

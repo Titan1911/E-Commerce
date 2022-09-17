@@ -1,1 +1,1 @@
-web: gunicorn --chdir ECommerce ECommerce.wsgi --log-file -
+web: gunicorn ECommerce.wsgi --log-file -

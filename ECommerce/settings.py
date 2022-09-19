@@ -81,17 +81,27 @@ WSGI_APPLICATION = 'ECommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd9099j77560u8c',
+        'USER': 'gfygkpkrukkpzu',
+        'PASSWORD': '10126506a222d92d9e67ec59b569410c474348ef05f896cbfa09d4835d3aad22',
+        'HOST': 'ec2-3-224-184-9.compute-1.amazonaws.com',
+        'PORT': '5432'
     }
 }
-
 # settings to set-up postgresSQL as database on HEROKU deployment
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
+print(DATABASES)
 
 CACHE_TTL = 60 * 1500
 
@@ -155,4 +165,5 @@ LOGIN_URL = '/auth/login_user/?next=/'
 # These settings are for the images which are uploaded 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
+# print(MEDIA_ROOT)
+# print(MEDIA_URL)

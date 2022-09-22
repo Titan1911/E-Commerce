@@ -70,13 +70,17 @@ class ProductImage(models.Model):
 def product_updation(sender, **kwargs):
     cache.delete_pattern('products')
     cache.delete_pattern('product.*')
-    cache.delete_pattern('photo.*')
+    cache.delete_pattern('photos.*')
+    cache.delete_pattern('categories')
+    cache.delete_pattern('category.*')
 
 @receiver(post_delete, sender=Product)
 def product_deletion(sender, **kwargs):
     cache.delete_pattern('products')
     cache.delete_pattern('product.*')
-    cache.delete_pattern('photo.*')
+    cache.delete_pattern('photos.*')
+    cache.delete_pattern('categories')
+    cache.delete_pattern('category.*')
 
 @receiver(post_save, sender=Category)
 def category_updation(sender, **kwargs):

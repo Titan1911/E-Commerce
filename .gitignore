@@ -1,2 +1,4 @@
 .env
 accounts.txt
+*.pyc
+__pycache__/

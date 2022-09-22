@@ -38,11 +38,13 @@ def show_all(request):
     else:
         categories = Category.objects.all()
         cache.set('categories', categories)
+
     slug = request.GET.get('category')
     if slug:
         category_key = f'category.{slug}'
         if cache.get(category_key):
             products = cache.get(category_key)
+
         else:
             category = Category.objects.get(slug=slug)
             products = Product.objects.filter(category=category)
@@ -51,9 +53,11 @@ def show_all(request):
         products_key = f'products'
         if cache.get(products_key):
             products = cache.get(products_key)
+
         else:
             products = Product.objects.all()
             cache.set(products_key, products)
+
     cart_items = CartItem.objects.all()
     context = { 'products':products, 'cart_items':cart_items, 'categories': categories }
     return render(request, 'products.html', context=context)

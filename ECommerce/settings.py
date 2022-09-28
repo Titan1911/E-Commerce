@@ -170,6 +170,7 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': env('CLOUD_API_SECRET')
 }
 
+# Config for static files using whitenoise, better to use on deployment on Heroku 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_URL = '/static/'

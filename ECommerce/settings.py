@@ -179,5 +179,5 @@ LOGIN_URL = '/auth/login_user/?next=/'
 
 # These settings are for the images which are uploaded 
 # This setting was used in the development phase, now media files deployed on cloudinary
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'

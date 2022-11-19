@@ -2,3 +2,4 @@
 accounts.txt
 *.pyc
 __pycache__/
+data.json

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'order',
     'cloudinary',
     'cloudinary_storage',
+    'ebhealthcheck.apps.EBHealthCheckConfig'
 ]
 
 MIDDLEWARE = [

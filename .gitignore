@@ -3,3 +3,7 @@ accounts.txt
 *.pyc
 __pycache__/
 data.json
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

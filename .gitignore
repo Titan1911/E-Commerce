@@ -3,7 +3,12 @@ accounts.txt
 *.pyc
 __pycache__/
 data.json
+whole.json
+whole.json.bak
+aws_cred.txt
+Titan_accessKeys.csv
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+

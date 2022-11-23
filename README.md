@@ -13,4 +13,4 @@ Static files served on AWS S3 bucket.
 
 Redis service instance created from https://redis.com.
 
-Images served on [Cloudinary](https://cloudinary.com).
+Media files served on [Cloudinary](https://cloudinary.com).

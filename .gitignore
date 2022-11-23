@@ -7,6 +7,7 @@ whole.json
 whole.json.bak
 aws_cred.txt
 Titan_accessKeys.csv
+S3_CORS_Config.txt
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

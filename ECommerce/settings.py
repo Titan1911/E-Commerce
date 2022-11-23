@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'order',
     'cloudinary',
     'cloudinary_storage',
-    'ebhealthcheck.apps.EBHealthCheckConfig'
+    'ebhealthcheck.apps.EBHealthCheckConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -186,3 +187,16 @@ LOGIN_URL = '/auth/login_user/?next=/'
 # This setting was used in the development phase, now media files deployed on cloudinary
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_URL = '/media/'
+
+# S3 Bucket config for static files
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_CUSTOM_DOMAIN = env('AWS_S3_CUSTOM_DOMAIN')
+AWS_QUERYSTRING_AUTH = env('AWS_QUERYSTRING_AUTH')
+AWS_LOCATION = 'static'
+STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{AWS_LOCATION}/'
+AWS_S3_OBJECT_PARAMETERS = { 'CacheControl': 'max-age=86400' }
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'

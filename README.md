@@ -3,11 +3,9 @@ Django based E-Commerce website.
 
 Has authorization, authentication, password validations, REDIS for caching and all basic functionalities.
 
-Deployed on AWS Elastic Beanstock: http://ecommerce-titan.eba-ptesai6p.ap-south-1.elasticbeanstalk.com. 
+Deployed on AWS Elastic Beanstock: https://ecommerce-titan.up.railway.app. 
 
-Database hosted on AWS RDS.
-
-Static files served on AWS S3 bucket.
+Database hosted on [Supabase](https://supabase.com/).
 
 Redis service instance created from https://redis.com.
 

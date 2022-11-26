@@ -32,9 +32,6 @@ DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -53,6 +50,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'ebhealthcheck.apps.EBHealthCheckConfig',
     'storages',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'ECommerce.urls'
@@ -83,6 +82,8 @@ TEMPLATES = [
         },
     },
 ]
+
+CSRF_TRUSTED_ORIGINS = ['https://ecommerce-titan.up.railway.app/']
 
 WSGI_APPLICATION = 'ECommerce.wsgi.application'
 

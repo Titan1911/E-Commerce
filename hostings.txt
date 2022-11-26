@@ -1,0 +1,23 @@
+Server:
+    heroku
+    netlify
+    vercel
+    pythonanywhere
+    openshift
+    youstable
+    fly.io
+    aws EB
+    railway (active)
+
+Database:
+    heroku postgres aws
+    planetscale
+    elephantSQL
+    aws RDS
+    supabase (active)
+
+Media Files:
+    cloudinary (active)
+
+Caching:
+    redis (active)

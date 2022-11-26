@@ -83,7 +83,7 @@ TEMPLATES = [
     },
 ]
 
-CSRF_TRUSTED_ORIGINS = ['https://ecommerce-titan.up.railway.app/']
+CSRF_TRUSTED_ORIGINS = ['https://ecommerce-titan.up.railway.app']
 
 WSGI_APPLICATION = 'ECommerce.wsgi.application'
 

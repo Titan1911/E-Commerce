@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'ebhealthcheck.apps.EBHealthCheckConfig',
     'storages',
     'corsheaders',
+    'silk',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'corsheaders.middleware.CorsMiddleware',
+    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'ECommerce.urls'

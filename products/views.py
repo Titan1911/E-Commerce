@@ -32,9 +32,9 @@ def show_all(request):
             cart.total_items += 1
             cart.total_price += product.price
             cart.save()
-            return redirect('products')
+        return redirect('products')
 
-    
+
     if cache.get('categories'):
         categories = cache.get('categories')
     else:

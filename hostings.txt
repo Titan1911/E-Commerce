@@ -8,12 +8,14 @@ Server:
     fly.io
     aws EB
     railway (active)
+    render (active)
 
 Database:
     heroku postgres aws
     planetscale
     elephantSQL
     aws RDS
+    railway
     supabase (active)
 
 Media Files:

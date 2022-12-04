@@ -3,7 +3,7 @@ Django based E-Commerce website.
 
 Has authorization, authentication, password validations, REDIS for caching and all basic functionalities.
 
-Deployed on [Railway](https://railway.app/): https://ecommerce-titan.up.railway.app. 
+Deployed on [Render](https://render.com/): https://ecommerce-titan.onrender.com and [Railway](https://railway.app/): https://ecommerce-titan.up.railway.app.
 
 Database hosted on [Supabase](https://supabase.com/).
 

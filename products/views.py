@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Category, Product, ProductImage
 from cart.models import Cart, CartItem
 from django.contrib.auth.decorators import login_required
@@ -32,6 +32,8 @@ def show_all(request):
             cart.total_items += 1
             cart.total_price += product.price
             cart.save()
+            return redirect('products')
+
     
     if cache.get('categories'):
         categories = cache.get('categories')

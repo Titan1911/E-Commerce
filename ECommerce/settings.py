@@ -113,7 +113,6 @@ DATABASES = {
         },
     }
 }
-# DATABASES['default'] = dj_database_url.parse('postgresql://postgres:KxeTnOxGSEFZLr7xIlZq@containers-us-west-111.railway.app:7216/railway')
 
 # settings to set-up postgresSQL as database on HEROKU deployment
 # import dj_database_url

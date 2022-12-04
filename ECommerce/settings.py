@@ -14,6 +14,7 @@ import os
 import environ
 import cloudinary
 import cloudinary_storage
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -51,7 +52,6 @@ INSTALLED_APPS = [
     'ebhealthcheck.apps.EBHealthCheckConfig',
     'storages',
     'corsheaders',
-    'silk',
 ]
 
 MIDDLEWARE = [
@@ -64,7 +64,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
-    'silk.middleware.SilkyMiddleware',
 ]
 
 ROOT_URLCONF = 'ECommerce.urls'
@@ -109,8 +108,13 @@ DATABASES = {
         'PASSWORD': env('DB_PASSWORD'),
         'HOST': env('DB_HOST'),
         'PORT': env('DB_PORT'),
+        'OPTIONS': {
+            'sslmode': 'verify-full',
+            'sslrootcert': os.path.join(BASE_DIR, 'prod-ca-2021.crt'),
+        },
     }
 }
+# DATABASES['default'] = dj_database_url.parse('postgresql://postgres:KxeTnOxGSEFZLr7xIlZq@containers-us-west-111.railway.app:7216/railway')
 
 # settings to set-up postgresSQL as database on HEROKU deployment
 # import dj_database_url

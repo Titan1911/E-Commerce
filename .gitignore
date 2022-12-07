@@ -1,13 +1,17 @@
 .env
 accounts.txt
 *.pyc
-__pycache__/
+*/__pycache__/*
 data.json
 whole.json
 whole.json.bak
 aws_cred.txt
 Titan_accessKeys.csv
 S3_CORS_Config.txt
+.ebextensions
+vercel.json
+db.sqlite3
+status.py
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

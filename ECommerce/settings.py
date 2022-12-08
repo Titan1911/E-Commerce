@@ -179,8 +179,13 @@ CLOUDINARY_STORAGE = {
     'API_SECRET': env('CLOUD_API_SECRET')
 }
 
-# Config for static files using whitenoise, better to use on deployment on Heroku 
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+REST_FRAMEWORK = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 5
+}
+
+# Config for static files using whitenoise, for compressing large static files
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATIC_URL = '/static/'
 

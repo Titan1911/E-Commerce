@@ -12,6 +12,7 @@ S3_CORS_Config.txt
 vercel.json
 db.sqlite3
 status.py
+api.txt
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

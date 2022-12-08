@@ -9,4 +9,4 @@ Database hosted on [Supabase](https://supabase.com/).
 
 Redis service instance created from [Redis](https://redis.com).
 
-Media files served on [Cloudinary](https://cloudinary.com).
+Media and Static files served on [Cloudinary](https://cloudinary.com).

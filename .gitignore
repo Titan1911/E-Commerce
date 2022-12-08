@@ -13,6 +13,7 @@ vercel.json
 db.sqlite3
 status.py
 api.txt
+static/
 # Elastic Beanstalk Files
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml

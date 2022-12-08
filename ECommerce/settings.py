@@ -184,11 +184,11 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5
 }
 
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-
 STATIC_URL = '/static/'
 
-STATIC_ROOT = 'static'
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+
+# STATIC_ROOT = 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'rest_framework',
     'products',
@@ -47,7 +48,6 @@ INSTALLED_APPS = [
     'accounts',
     'order',
     'cloudinary',
-    'cloudinary_storage',
     'ebhealthcheck.apps.EBHealthCheckConfig',
     'storages',
     'corsheaders',
@@ -184,8 +184,7 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5
 }
 
-# Config for static files using whitenoise, for compressing large static files
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 
 STATIC_URL = '/static/'
 

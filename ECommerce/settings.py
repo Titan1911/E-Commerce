@@ -28,7 +28,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env('DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -42,12 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'rest_framework',
     'products',
     'cart',
     'accounts',
     'order',
-    'cloudinary',
     'ebhealthcheck.apps.EBHealthCheckConfig',
     'storages',
     'corsheaders',
@@ -173,6 +173,8 @@ USE_TZ = True
 # Cloudinary config to store media files
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
+STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
+
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': env('CLOUD_NAME'),
     'API_KEY': env('CLOUD_API_KEY'),
@@ -185,8 +187,6 @@ REST_FRAMEWORK = {
 }
 
 STATIC_URL = '/static/'
-
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
 
 # STATIC_ROOT = 'static'
 

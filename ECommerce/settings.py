@@ -173,8 +173,6 @@ USE_TZ = True
 # Cloudinary config to store media files
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
-STATICFILES_STORAGE = "cloudinary_storage.storage.StaticHashedCloudinaryStorage"
-
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': env('CLOUD_NAME'),
     'API_KEY': env('CLOUD_API_KEY'),
@@ -188,7 +186,7 @@ REST_FRAMEWORK = {
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = 'static'
+STATIC_ROOT = 'static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 

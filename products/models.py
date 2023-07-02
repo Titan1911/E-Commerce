@@ -58,36 +58,36 @@ class Product(models.Model):
         db_table='product_table' # overriding the default database table name which will be 'name of the class' otherwise
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE)
-    images = models.ImageField(upload_to='products/')
+    product = models.ForeignKey(Product, default=None, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='products/')
 
     def __str__(self) -> str:
         return str(self.product.product_name)
 
 
 # this signal if for when there is an updation in the products then delete all the cache related to products page
-@receiver(post_save, sender=Product)
-def product_updation(sender, **kwargs):
-    cache.delete_pattern('products')
-    cache.delete_pattern('product.*')
-    cache.delete_pattern('photos.*')
-    cache.delete_pattern('categories')
-    cache.delete_pattern('category.*')
+# @receiver(post_save, sender=Product)
+# def product_updation(sender, **kwargs):
+#     cache.delete_pattern('products')
+#     cache.delete_pattern('product.*')
+#     cache.delete_pattern('photos.*')
+#     cache.delete_pattern('categories')
+#     cache.delete_pattern('category.*')
 
-@receiver(post_delete, sender=Product)
-def product_deletion(sender, **kwargs):
-    cache.delete_pattern('products')
-    cache.delete_pattern('product.*')
-    cache.delete_pattern('photos.*')
-    cache.delete_pattern('categories')
-    cache.delete_pattern('category.*')
+# @receiver(post_delete, sender=Product)
+# def product_deletion(sender, **kwargs):
+#     cache.delete_pattern('products')
+#     cache.delete_pattern('product.*')
+#     cache.delete_pattern('photos.*')
+#     cache.delete_pattern('categories')
+#     cache.delete_pattern('category.*')
 
-@receiver(post_save, sender=Category)
-def category_updation(sender, **kwargs):
-    cache.delete_pattern('categories')
-    cache.delete_pattern('category.*')
+# @receiver(post_save, sender=Category)
+# def category_updation(sender, **kwargs):
+#     cache.delete_pattern('categories')
+#     cache.delete_pattern('category.*')
 
-@receiver(post_delete, sender=Category)
-def category_deletion(sender, **kwargs):
-    cache.delete_pattern('categories')
-    cache.delete_pattern('category.*')
+# @receiver(post_delete, sender=Category)
+# def category_deletion(sender, **kwargs):
+#     cache.delete_pattern('categories')
+#     cache.delete_pattern('category.*')

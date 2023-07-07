@@ -73,13 +73,13 @@ def detail_view(request, id):
         product = cache.get(product_key)
     else:
         product = Product.objects.get(id=id)
-        print(product.image.url)
+        # print(product.image.url)
         cache.set(f'product.{id}', product)
     if cache.get(photo_key):
         photos = cache.get(photo_key)
     else:
         photos = ProductImage.objects.filter(product=product)
-        print(photos[1].image.url)
+        # print(photos[1].image.url)
         cache.set(f'photos.{id}', photos)
     context = {'product': product, 'photos': photos}
     return render(request, 'details.html', context=context)
